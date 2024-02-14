@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServiceGame" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IServiceGame_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WCF" />
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TicTacToe" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceGame_Connect_InputMessage">
+    <wsdl:part name="parameters" element="tns:Connect" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_Connect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_Connect_NoDataFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/WCF" name="detail" element="q1:NoDataFault" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_EnterId_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnterId" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_EnterId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnterIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_CheckIdAndPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckIdAndPassword" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_CheckIdAndPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckIdAndPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_CheckIdAndPassword_NoDataFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/WCF" name="detail" element="q2:NoDataFault" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_CreateHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateHistory" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_CreateHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_StartGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartGame" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_UpdateHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHistory" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_UpdateHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_EnabledOrDisenabled_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnabledOrDisenabled" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_CrossOrZero_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrossOrZero" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_CheckWin_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckWin" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_CheckDraw_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckDraw" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_Agreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:Agreement" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_LeaveGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveGame" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_LeaveGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_EndHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndHistory" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_EndHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EndHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_ButtonEnabled_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ButtonEnabled" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_ButtonDisenabled_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ButtonDisenabled" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_CrossOrZeroCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:CrossOrZeroCallBack" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_WinOrLose_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:WinOrLose" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_CheckDrawCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:CheckDrawCallBack" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_AgreementCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:AgreementCallBack" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_ClearButton_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ClearButton" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGame_LeaveGameCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:LeaveGameCallBack" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceGame">
+    <wsdl:operation name="Connect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/Connect" message="tns:IServiceGame_Connect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/ConnectResponse" message="tns:IServiceGame_Connect_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceGame/ConnectNoDataFaultFault" name="NoDataFaultFault" message="tns:IServiceGame_Connect_NoDataFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnterId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/EnterId" message="tns:IServiceGame_EnterId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/EnterIdResponse" message="tns:IServiceGame_EnterId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIdAndPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/CheckIdAndPassword" message="tns:IServiceGame_CheckIdAndPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/CheckIdAndPasswordResponse" message="tns:IServiceGame_CheckIdAndPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceGame/CheckIdAndPasswordNoDataFaultFault" name="NoDataFaultFault" message="tns:IServiceGame_CheckIdAndPassword_NoDataFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/CreateHistory" message="tns:IServiceGame_CreateHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/CreateHistoryResponse" message="tns:IServiceGame_CreateHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/StartGame" message="tns:IServiceGame_StartGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/UpdateHistory" message="tns:IServiceGame_UpdateHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/UpdateHistoryResponse" message="tns:IServiceGame_UpdateHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnabledOrDisenabled">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/EnabledOrDisenabled" message="tns:IServiceGame_EnabledOrDisenabled_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrossOrZero">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/CrossOrZero" message="tns:IServiceGame_CrossOrZero_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckWin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/CheckWin" message="tns:IServiceGame_CheckWin_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckDraw">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/CheckDraw" message="tns:IServiceGame_CheckDraw_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Agreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/Agreement" message="tns:IServiceGame_Agreement_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/LeaveGame" message="tns:IServiceGame_LeaveGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/LeaveGameResponse" message="tns:IServiceGame_LeaveGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/EndHistory" message="tns:IServiceGame_EndHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/EndHistoryResponse" message="tns:IServiceGame_EndHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ButtonEnabled">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/ButtonEnabled" message="tns:IServiceGame_ButtonEnabled_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ButtonDisenabled">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/ButtonDisenabled" message="tns:IServiceGame_ButtonDisenabled_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrossOrZeroCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/CrossOrZeroCallBack" message="tns:IServiceGame_CrossOrZeroCallBack_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WinOrLose">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/WinOrLose" message="tns:IServiceGame_WinOrLose_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckDrawCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/CheckDrawCallBack" message="tns:IServiceGame_CheckDrawCallBack_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgreementCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/AgreementCallBack" message="tns:IServiceGame_AgreementCallBack_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearButton">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/ClearButton" message="tns:IServiceGame_ClearButton_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGameCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/LeaveGameCallBack" message="tns:IServiceGame_LeaveGameCallBack_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IServiceGame" type="tns:IServiceGame">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServiceGame_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="Connect">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/Connect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NoDataFaultFault">
+        <soap12:fault use="literal" name="NoDataFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EnterId">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/EnterId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIdAndPassword">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/CheckIdAndPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NoDataFaultFault">
+        <soap12:fault use="literal" name="NoDataFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateHistory">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/CreateHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartGame">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/StartGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHistory">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/UpdateHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnabledOrDisenabled">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/EnabledOrDisenabled" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="CrossOrZero">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/CrossOrZero" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="CheckWin">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/CheckWin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="CheckDraw">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/CheckDraw" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Agreement">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/Agreement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGame">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/LeaveGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndHistory">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/EndHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ButtonEnabled">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/ButtonEnabled" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ButtonDisenabled">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/ButtonDisenabled" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrossOrZeroCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/CrossOrZeroCallBack" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WinOrLose">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/WinOrLose" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckDrawCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/CheckDrawCallBack" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgreementCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/AgreementCallBack" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearButton">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/ClearButton" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGameCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IServiceGame/LeaveGameCallBack" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceGame">
+    <wsdl:port name="NetTcpBinding_IServiceGame" binding="tns:NetTcpBinding_IServiceGame">
+      <soap12:address location="net.tcp://localhost:8302/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8302/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>DESKTOP-PJTVQ5R\Vostro</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

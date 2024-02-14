@@ -1,0 +1,15 @@
+C:\Users\Vostro\source\repos\ClientGame\bin\Debug\ClientGame.exe.config
+C:\Users\Vostro\source\repos\ClientGame\bin\Debug\ClientGame.exe
+C:\Users\Vostro\source\repos\ClientGame\bin\Debug\ClientGame.pdb
+C:\Users\Vostro\source\repos\ClientGame\obj\Debug\ClientGame.csproj.AssemblyReference.cache
+C:\Users\Vostro\source\repos\ClientGame\obj\Debug\ClientGame.csproj.SuggestedBindingRedirects.cache
+C:\Users\Vostro\source\repos\ClientGame\obj\Debug\ClientGame.Form1.resources
+C:\Users\Vostro\source\repos\ClientGame\obj\Debug\ClientGame.Properties.Resources.resources
+C:\Users\Vostro\source\repos\ClientGame\obj\Debug\ClientGame.csproj.GenerateResource.cache
+C:\Users\Vostro\source\repos\ClientGame\obj\Debug\ClientGame.csproj.CoreCompileInputs.cache
+C:\Users\Vostro\source\repos\ClientGame\obj\Debug\ClientGame.exe
+C:\Users\Vostro\source\repos\ClientGame\obj\Debug\ClientGame.pdb
+C:\Users\Vostro\source\repos\ClientGame\obj\Debug\ClientGame.Game.resources
+C:\Users\Vostro\source\repos\ClientGame\bin\Debug\TicTacToe.pdb
+C:\Users\Vostro\source\repos\ClientGame\bin\Debug\TicTacToe.dll.config
+C:\Users\Vostro\source\repos\ClientGame\obj\Debug\ClientGame.csproj.CopyComplete
